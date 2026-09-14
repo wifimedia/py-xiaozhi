@@ -2,15 +2,15 @@
 @chcp 65001 >nul
 setlocal enabledelayedexpansion
 
-echo 🧹 开始代码格式化...
+echo 🧹 Starting code formatting...
 
-echo 🔧 检查并安装依赖包...
+echo 🔧 Checking and installing dependency packages...
 python -m pip install --upgrade pip >nul
 python -m pip install autoflake docformatter isort black flake8 >nul
 
-echo 📦 依赖包安装完成
+echo 📦 Key Definitions
 
-:: 定义要格式化的目标文件夹和文件
+:: Define the target folders and files to be formatted.
 set TARGETS=src/ scripts/ hooks/ main.py
 
 echo 📁 格式化目标: %TARGETS%
