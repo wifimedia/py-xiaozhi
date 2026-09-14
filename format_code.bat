@@ -13,31 +13,32 @@ echo 📦 Key Definitions
 :: Define the target folders and files to be formatted.
 set TARGETS=src/ scripts/ hooks/ main.py
 
-echo 📁 格式化目标: %TARGETS%
+echo 📁 Formatting targets: %TARGETS%
 echo.
 
-:: 删除未使用导入和变量
- echo 1️⃣ 删除未使用的导入和变量...
+:: Remove unused imports and variables
+echo 1️⃣ Removing unused imports and variables...
 python -m autoflake -r --in-place --remove-unused-variables --remove-all-unused-imports --ignore-init-module-imports %TARGETS%
 
-:: 修复文档字符串格式
- echo 2️⃣ 格式化文档字符串...
+:: Fix docstring formatting
+echo 2️⃣ Formatting docstrings...
 python -m docformatter -r -i --wrap-summaries=88 --wrap-descriptions=88 --make-summary-multi-line %TARGETS%
 
-:: 自动排序导入
- echo 3️⃣ 排序导入语句...
+:: Automatically sort imports
+echo 3️⃣ Sorting import statements...
 python -m isort %TARGETS%
 
-:: 自动格式化代码
- echo 4️⃣ 格式化代码...
+:: Automatically format code
+echo 4️⃣ Formatting code...
 python -m black %TARGETS%
 
-:: 静态代码检查
- echo 5️⃣ 静态代码检查...
+:: Static code analysis
+echo 5️⃣ Static code analysis...
 python -m flake8 %TARGETS%
 
 echo.
-echo ✅ 代码格式化完成！
-echo 📊 已处理的目标: %TARGETS%
+echo ✅ Code formatting complete!
+echo 📊 Targets processed: %TARGETS%
+Gửi ý kiến phản hồi
 
 endlocal
