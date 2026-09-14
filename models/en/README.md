@@ -6,9 +6,9 @@ tasks:
 - keyword-spotting
 ---
 
-sherpa 中自定义唤醒词模型，训练数据为 gigaspeech XL （10000 小时）数据，模型大小约为 3.3 M， 建模单元为 BPE 。 使用 icefall 训练，已转换为 onnx 格式，此仓库主要是给 sherpa-onnx 这个 inference 引擎使用。
+This is a custom wake-word model for Sherpa, trained on the GigaSpeech XL dataset (10,000 hours). It uses BPE modeling units, has a model size of approximately 3.3 MB, and employs the Zipformer architecture. Trained using Icefall and converted to ONNX format, the model is primarily designed for use with the Sherpa-ONNX inference engine.
 
-模型结构为 zipformer 模型， 本质是一个非常小的语音识别模型，为了实现唤醒词的功能，我们在解码端做了一些修改和约束。 支持自定义唤醒词，数量不限，效果需要单个调整参数。
+Architecturally, it is a Zipformer model—essentially a highly compact automatic speech recognition (ASR) model—modified and constrained at the decoding stage to support wake-word functionality. It supports an unlimited number of custom wake-words, though performance tuning requires adjusting parameters for each specific wake-word.
 
 #### Clone with HTTP
 ```bash
